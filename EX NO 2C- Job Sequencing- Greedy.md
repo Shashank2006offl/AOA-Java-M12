@@ -1,46 +1,71 @@
 
-# EX 1C Job Sequencing using Greedy Approach
-## DATE:
+# EX 2D Pattern Matching using Naive Approach.
+
 ## AIM:
 To write a Java program to for given constraints.
-Given an integer array nums and an integer k, return the number of pairs (i, j) where i < j such that |nums[i] - nums[j]| == k.
+Given text string with length n and a pattern with length m, the task is to prints all occurrences of pattern in text.
+Note: You may assume that n > m.
 
-The value of |x| is defined as:
+Examples: 
 
-x if x >= 0.
--x if x < 0.You're given N jobs, each with:
+Input:  text = "THIS IS A TEST TEXT", pattern = "TEST"
+Output: Pattern found at index 10
 
-A unique jobId
-
-A deadline (by which it must be completed)
-
-A profit (earned only if completed on or before the deadline)
-
-Each job:
-
-Takes exactly 1 unit of time
-
-Only one job can be done at a time
-
-Your goal is to maximize total profit while completing the maximum number of jobs possible within their deadlines.
+Input:  text =  "AABAACAADAABAABA", pattern = "AABA"
+Output: Pattern found at index 0, Pattern found at index 9, Pattern found at index 12
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
+1. Read the text string and pattern string.
+
+2. Compute lengths: n = text.length() and m = pattern.length().
+
+3. Loop i from 0 to n − m (possible starting positions in text).
+
+4. For each i, compare the pattern with the text starting at position i.
+
+5. If all characters match (inner loop completes), report the match index i.
+
+6. Continue until all positions are checked. 
 
 ## Program:
 ```
-/*
-Program to implement Reverse a String
-Developed by: 
-Register Number:  
-*/
+import java.util.Scanner;
+
+public class NaivePatternSearch {
+    static void search(String text,String pattern){
+        int n=text.length();
+        int m=pattern.length();
+        for(int i =0;i<=n-m;i++){
+            int j;
+            for( j=0;j<m;j++){
+                if(text.charAt(i+j) != pattern.charAt(j))
+                   break;
+            }
+            if(j==m)
+                System.out.println("Pattern found at index " +i);
+}
+}
+ 
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        String text = scanner.nextLine();
+
+        String pattern = scanner.nextLine();
+
+       
+        search(text, pattern);
+
+        scanner.close();
+    }
+}
+
 ```
 
 ## Output:
+<img width="716" height="361" alt="image" src="https://github.com/user-attachments/assets/18502c1c-b457-46b5-b785-46ae1679356c" />
 
 
 
